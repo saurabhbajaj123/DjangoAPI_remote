@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class approvals(models.Model):
+class Approvals(models.Model):
     GENDER_CHOICES = (
         ('Male', 'Male'),
         ('Female', 'Female')
@@ -35,7 +35,7 @@ class approvals(models.Model):
     gender = models.CharField(max_length=15, choices=GENDER_CHOICES)
     married = models.CharField(max_length=15, choices=MARRIED_CHOICES)
     graduatededucation = models.CharField(max_length=15, choices=GRADUATE_CHOICES)
-    selfemployed = models.CharField(max_l ength=15, choices=SELFEMPLOYED_CHOICES)
+    selfemployed = models.CharField(max_length=15, choices=SELFEMPLOYED_CHOICES)
     area = models.CharField(max_length=15, choices=PROPERTY_CHOICES)
 
     def __str__(self):
