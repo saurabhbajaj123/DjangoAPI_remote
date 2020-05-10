@@ -37,12 +37,12 @@ def myform(request):
 @api_view(["POST"])
 def approvereject(request):
     try:
-        model_name = os.path.abspath(os.path.join(os.getcwd(), os.pardir)).replace('\\', '/') + '/loan_madel.pkl'
+        model_name = os.path.abspath(os.path.join(os.getcwd(), os.pardir)).replace('\\', '/') + '/MLmodel/loan_madel.pkl'
         mdl = joblib.load(model_name)
         mydata=request.data
         unit=np.array(list(mydata.values()))
         unit=unit.reshape(1,-1)
-        scaler_filename = os.path.abspath(os.path.join(os.getcwd(), os.pardir)).replace('\\', '/') + '/scaler.pkl'
+        scaler_filename = os.path.abspath(os.path.join(os.getcwd(), os.pardir)).replace('\\', '/') + '/MLmodel/scaler.pkl'
         scalers=joblib.load(scaler_filename)
         X=scalers.transform(unit)
         y_pred=mdl.predict(X)
