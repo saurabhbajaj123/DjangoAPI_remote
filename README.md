@@ -1,2 +1,2 @@
 # DjangoAPI_remote
-Creatin Django API for ML models
+Creating Django API for ML models
