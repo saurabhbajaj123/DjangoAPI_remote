@@ -11,7 +11,8 @@ from rest_framework.parsers import JSONParser
 from .models import Approvals
 from .serializers import approvalsSerializers
 import pickle
-from sklearn.externals import joblib
+# from sklearn.externals import joblib
+import joblib
 import json
 import numpy as np
 from sklearn import preprocessing
