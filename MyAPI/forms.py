@@ -15,7 +15,7 @@ class ApprovalForm(forms.Form):
     CoapplicantIncome = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter co-applicant monthly gross income'}))
     LoanAmount = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Requested loan amount'}))
     Loan_Amount_Term = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Loan term in months'}))
-    Credit_History = forms.ChoiceField(choices=[(1, '1'), (0, '0')])
+    Credit_History = forms.ChoiceField(choices=[('1', 1), ('0', 0)])
     Gender = forms.ChoiceField(choices=[('Male', 'Male'), ('Female', 'Female')])
     Married = forms.ChoiceField(choices=[('Yes', 'Yes'), ('No', 'No')])
     Education = forms.ChoiceField(choices=[('Graduate', 'Graduate'), ('Not_Graduate', 'Not_Graduate')])
