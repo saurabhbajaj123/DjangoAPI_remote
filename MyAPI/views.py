@@ -11,7 +11,6 @@ from rest_framework.parsers import JSONParser
 from .models import Approvals
 from .serializers import approvalsSerializers
 import pickle
-# from sklearn.externals import joblib
 import joblib
 import json
 import numpy as np
@@ -60,7 +59,7 @@ def ohevalue(df):
 # @api_view(["POST"])
 def approvereject(unit):
     try:
-        keras.backend.clear_session() # this is needed other wise we get an error - ValueError("Tensor %s is not an element of this graph." % obj)
+        # keras.backend.clear_session() # this is needed other wise we get an error - ValueError("Tensor %s is not an element of this graph." % obj)
         model_name = os.path.abspath(os.getcwd()).replace('\\', '/') + '/MLmodel/loan_madel.pkl'
         # print('start model loading')
         mdl = joblib.load(model_name)
@@ -120,4 +119,4 @@ def custcontact(request):
     
     form=ApprovalForm()
 
-    return render(request, 'myform/form.html', {'form':form})
+    return render(request, 'myform/cxform.html', {'form':form})
