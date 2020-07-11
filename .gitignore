@@ -245,3 +245,6 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+# files uploaded by the user
+InputFiles/upladedFiles/*
