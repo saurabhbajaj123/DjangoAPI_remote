@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
 from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 
 # Create your views here.
 
@@ -20,8 +21,9 @@ def upload_file(request):
             print(uploaded_file.name)
             print(uploaded_file.size)
 
-            #creating a filesystem object to save file
-            fs = FileSystemStorage()
+            # creating a filesystem object to save file
+            # defines the location where the files will be stored
+            fs = FileSystemStorage(location=settings.UPLOAD_ROOT, base_url=settings.UPLOADED_URL)
             fs.save(uploaded_file.name, uploaded_file)
             print('2.9')
             return render(request, 'upload_forms/upload.html', {'form': form})
