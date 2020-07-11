@@ -135,3 +135,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'MyAPI/templates/myform/static')
 ]
+
+
+# below code is for InputFiles app
+MEDIA_ROOT_IP_FILES = os.path.join(BASE_DIR, 'InputFiles/uploadedFiles')
+
+# below code is for InputFiles app
+MEDIA_URL_IP_FILES = '/uploaded/'

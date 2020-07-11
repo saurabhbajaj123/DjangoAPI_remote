@@ -12,3 +12,7 @@ urlpatterns = [
     # path('api/', include(router.urls)),
     # path('status/', views.approvereject),
 ]
+
+# below code is for InputFiles app
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL_IP_FILES, document_root=settings.MEDIA_ROOT_IP_FILES)
