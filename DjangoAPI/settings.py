@@ -138,7 +138,10 @@ STATICFILES_DIRS = [
 
 
 # below code is for InputFiles app
-MEDIA_ROOT_IP_FILES = os.path.join(BASE_DIR, 'InputFiles/uploadedFiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'InputFiles\\uploadedFiles')
+
+print(MEDIA_ROOT)
 
 # below code is for InputFiles app
-MEDIA_URL_IP_FILES = '/uploaded/'
+MEDIA_URL = '/uploaded/'
+print(MEDIA_URL)
