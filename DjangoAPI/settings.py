@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'MyAPI.apps.MyapiConfig',
-    'crispy_forms'
+    'crispy_forms',
+    'InputFiles.apps.InputfilesConfig'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'MyAPI/templates/myform/static')
 ]
+
+
+# below code is for InputFiles app
+UPLOAD_ROOT = os.path.join(BASE_DIR, 'InputFiles\\uploadedFiles')
+
+# below code is for InputFiles app
+UPLOADED_URL = '/uploaded'
