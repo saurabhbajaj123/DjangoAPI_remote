@@ -7,18 +7,16 @@ class UploadFileForm(forms.Form):
     file = forms.FileField(required=False)
 
 class UserCreationForm(forms.Form):
-    columns = ['id', 'packages_required', 'pakcages_installed', 'exactly']
 
-    # def __init__(self, *args, **kwargs):
-    #     extra = kwargs.pop('extra')
-    #     super(UserCreationForm, self).__init__(*args, **kwargs)
-    #     self.columns = extra
-    
-    def getChoices(list_):    
-        list_column_tuples = []
-        for i in zip(list_, list_):
-            list_column_tuples.append(i)
-        OPTIONS = tuple(list_column_tuples)
-        return OPTIONS
-    Columns = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, 
-                                          choices=getChoices(columns))
+    # this init function contians the field which we want to shaow in the form.
+    # Here even if we dont give the choices argument, it'll work
+    # this code is a little more flexible, it can take arguments in the init funciton, but it 
+    # was giving an error, so dynamic allocation of choices is done in the views.py
+    # using - form.fields['Columns'].choices = getChoices(columns)
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['Columns'] = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=[])
+
+
+    # Another way of doing the same thing as above
+    # Columns = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
