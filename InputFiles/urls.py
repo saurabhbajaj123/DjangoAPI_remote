@@ -8,7 +8,7 @@ from django.conf import settings
 # router.register('MyAPI', views.ApprovalsView)
 urlpatterns = [
     path('upload/', views.upload_file, name='upload_file'),
-    path('multi/', views.multiple_choices, name='multi_choice'),
+    path('multi/', views.multiple_choices, name='multi_choice')
     # path('form/', views.custcontact, name='custform'),
     # path('api/', include(router.urls)),
     # path('status/', views.approvereject),
