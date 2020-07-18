@@ -1,12 +1,35 @@
-{% extends 'upload_forms/base.html' %}
-
-{% block content %}
- <h2>Pre-processing</h2>
- <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-  
-    <!-- <input type='file' name='document'> -->
-    {{form}}
-    <button type='submit'>Upload file</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <div class = "mx-2 my-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 my-5">
+                    <h2>Pre-processing</h2>
+                    <!-- <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}                    
+                        {{ form }}
+                        <button type='submit'>Upload file</button>
+                    </form> -->
+                    <form method="post">
+                        {% csrf_token %}
+                    
+                        <!-- <input type='file' name='document'> -->
+                        {{form}}
+                        <button type='submit' name='categCols' >Select Columns</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
