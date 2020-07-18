@@ -47,17 +47,38 @@ def upload_file(request):
 
 
 def multiple_choices(request):
+    columns = ['id', 'packages_required', 'pakcages_installed', 'exactly']
+    def getChoices(list_):    
+        list_column_tuples = []
+        for i in zip(list_, list_):
+            list_column_tuples.append(i)
+        OPTIONS = tuple(list_column_tuples)
+        return OPTIONS
+    print(getChoices(columns))
     if request.method == 'POST':
-        columns = ['id', 'packages_required', 'pakcages_installed']
-        form2 = UserCreationForm(request.POST)
-        if form2.is_valid():
-            
-            columns = form2.cleaned_data #.get('columns')
-
-            print(columns) # {'Columns': ['id', 'packages_required', 'pakcages_installed']}
+        print('request.method == POST')
+        print(request)
+        form = UserCreationForm(request.POST)
+        # below is where we are assigning the values to be shown in 
+        # form, although in some places it is written that this is not
+        # a good way to assign the values
+        form.fields['Columns'].choices = getChoices(columns) 
+        print(request.POST)
+        columns_dict = request.POST.getlist("Columns")
+        print(columns_dict)
+        print('form created')
+        # print(form)
+        # print(form2.errors)
+        if form.is_valid():
+            print('form is valid')
+        #     columns = form2.cleaned_data.get('Columns')
+        #     print(columns) # {'Columns': ['id', 'packages_required', 'pakcages_installed']}
     else:
-        form2 = UserCreationForm()
+        print('response method is not post')
+        form = UserCreationForm()
+        # Here we give the values for the first look of the form
+        form.fields['Columns'].choices = getChoices(columns) 
 
-    return render(request, 'upload_forms/upload.html', {'form': form2})
+    return render(request, 'upload_forms/upload.html', {'form': form})
 
 
